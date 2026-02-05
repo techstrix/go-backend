@@ -1,7 +1,6 @@
 package main
 
 import (
-	"os"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -32,9 +31,6 @@ func main() {
 	router.GET("/albums", getAlbums)
 	router.GET("/albums/:id", getSpecificAlbum)
 	router.POST("/albums", postAlbums)
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-	router.Run("0.0.0.0" + port)
+
+	router.Run()
 }
